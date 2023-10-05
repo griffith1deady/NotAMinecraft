@@ -9,11 +9,7 @@ import org.gradle.api.DefaultTask;
 import org.gradle.api.file.FileCollection;
 import org.gradle.api.file.FileVisitDetails;
 import org.gradle.api.file.FileVisitor;
-import org.gradle.api.tasks.InputDirectory;
-import org.gradle.api.tasks.InputFile;
-import org.gradle.api.tasks.InputFiles;
-import org.gradle.api.tasks.OutputDirectory;
-import org.gradle.api.tasks.TaskAction;
+import org.gradle.api.tasks.*;
 import org.gradle.api.tasks.incremental.IncrementalTaskInputs;
 import org.gradle.api.tasks.incremental.InputFileDetails;
 import org.ultramine.gradle.internal.DirectoryClassRepo;
@@ -38,6 +34,7 @@ public class ReobfTask extends DefaultTask
 	private File overrideInputDir;
 	@InputFiles
 	private List<File> srg = new ArrayList<>();
+	@Classpath
 	private FileCollection classpath;
 	@OutputDirectory
 	private File outputDir = new File(getProject().getBuildDir(), getName());
@@ -52,6 +49,9 @@ public class ReobfTask extends DefaultTask
 	public void addSrg(String srg)
 	{
 		this.srg.add(getProject().file(srg));
+	}
+	public List<File> getSrg() {
+		return srg;
 	}
 
 	public File getInputDir()

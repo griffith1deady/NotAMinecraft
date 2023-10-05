@@ -9,8 +9,6 @@ import java.nio.charset.Charset;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.annotation.Nullable;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -95,7 +93,6 @@ public final class UsernameCache {
      * @return the player's last known username, or <code>null</code> if the
      *         cache doesn't have a record of the last username
      */
-    @Nullable
     public static String getLastKnownUsername(UUID uuid)
     {
         checkNotNull(uuid);

@@ -6,9 +6,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-
 import com.google.common.base.Preconditions;
 
 
@@ -126,13 +123,12 @@ public class Event
         return listeners;
     }
 
-    @Nullable
     public EventPriority getPhase()
     {
         return this.phase;
     }
 
-    public void setPhase(@Nonnull EventPriority value)
+    public void setPhase(EventPriority value)
     {
         Preconditions.checkArgument(value != null, "setPhase argument must not be null");
         int prev = phase == null ? -1 : phase.ordinal();

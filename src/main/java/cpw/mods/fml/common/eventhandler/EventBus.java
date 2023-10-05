@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import javax.annotation.Nonnull;
-
 import org.apache.logging.log4j.Level;
 
 import com.google.common.base.Preconditions;
@@ -35,7 +33,7 @@ public class EventBus implements IEventExceptionHandler
         exceptionHandler = this;
     }
 
-    public EventBus(@Nonnull IEventExceptionHandler handler)
+    public EventBus(IEventExceptionHandler handler)
     {
         this();
         Preconditions.checkArgument(handler != null, "EventBus exception handler can not be null");
